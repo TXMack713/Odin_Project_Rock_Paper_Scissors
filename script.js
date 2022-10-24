@@ -1,8 +1,8 @@
 let compChoice, userChoice;
 
 let entry; // Placeholder to verify proper selection was made
-console.info('Welcome to Rock-Paper-Scissors!');
-console.info('First to 5 victories wins the tournament.');
+console.log('Welcome to Rock-Paper-Scissors!');
+console.log('First to 5 victories wins the tournament.');
 
 let compWins = 0,
   userWins = 0,
@@ -20,7 +20,7 @@ function getUserChoice() {
   );
 
   userChoice = parseInt(entry);
-  if (userChoice != 1 || userChoice != 2 || userChoice != 3) {
+  if (userChoice < 1 || userChoice > 3) {
     entry = prompt(
       "Please enter a number for your selection: '1' for Rock, '2' for Paper, or '3' for Scissors:"
     );
@@ -80,7 +80,7 @@ function compareChoices() {
   }
 }
 
-while ((userWins != 5) || (compWins != 5)) {
+while (userWins != 5 || compWins != 5) {
   getComputerChoice();
   getUserChoice();
   compareChoices();

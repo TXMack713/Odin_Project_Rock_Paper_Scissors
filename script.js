@@ -1,6 +1,5 @@
-let compChoice, userChoice;
+let compChoice = '', userChoice = '';
 
-let entry; // Placeholder to verify proper selection was made
 console.log('Welcome to Rock-Paper-Scissors!');
 console.log('First to 5 victories wins the tournament.');
 
@@ -12,24 +11,24 @@ function getComputerChoice() {
   return Math.floor(Math.random() * (3 - 1 + 1) + 1);
 }
 
-compChoice = getComputerChoice();
-
 function getUserChoice() {
+  let entry; // Placeholder to verify proper selection was made
   entry = prompt(
     'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
   );
 
-  userChoice = parseInt(entry);
-  if (userChoice < 1 || userChoice > 3) {
+  while(entry < 1 || entry > 3 || (typeof entry != 'number')) {
     entry = prompt(
-      "Please enter a number for your selection: '1' for Rock, '2' for Paper, or '3' for Scissors:"
+      "Please enter a number for your selection: 1 for Rock, 2 for Paper, or 3 for Scissors:"
     );
   }
+
+  return entry;
 }
 
-function compareChoices() {
-  if (compChoice == 1) {
-    switch (userChoice) {
+function compareChoices(machine, user) {
+  if (machine == 1) {
+    switch (user) {
       case 1:
         console.log('Draw, Rock vs. Rock');
         draws++;
@@ -45,8 +44,8 @@ function compareChoices() {
     }
   }
 
-  if (compChoice == 2) {
-    switch (userChoice) {
+  if (machine == 2) {
+    switch (user) {
       case 1:
         console.log('You lose! Paper covers Rock!');
         compWins++;
@@ -62,8 +61,8 @@ function compareChoices() {
     }
   }
 
-  if (compChoice == 3) {
-    switch (userChoice) {
+  if (machine == 3) {
+    switch (user) {
       case 1:
         console.log('You win! Rock breaks Scissors!');
         userWins++;
@@ -81,7 +80,13 @@ function compareChoices() {
 }
 
 while (userWins != 5 || compWins != 5) {
-  getComputerChoice();
-  getUserChoice();
-  compareChoices();
+  compChoice = getComputerChoice();
+  userChoice = getUserChoice();
+  compareChoices(compChoice, userChoice);
+}
+
+if(userWins == 5) {
+  console.log("Congratulations! You won!");
+} else if(compWins == 5) {
+  console.log("The computer won, better luck next time.");
 }

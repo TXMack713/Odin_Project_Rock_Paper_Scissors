@@ -16,73 +16,77 @@ function getUserChoice() {
   entry = prompt(
     'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
   );
-
-  while(entry < 1 || entry > 3 || (typeof entry != 'number')) {
-    entry = prompt(
-      "Please enter a number for your selection: 1 for Rock, 2 for Paper, or 3 for Scissors:"
-    );
   }
-
   return entry;
 }
 
-function compareChoices(machine, user) {
+function playRound(machine, user) {
+  // 1 is for Rock
+  let results = '';
   if (machine == 1) {
     switch (user) {
       case 1:
-        console.log('Draw, Rock vs. Rock');
-        draws++;
+        results = 'Draw, Rock vs. Rock';
+        ++draws;
         break;
       case 2:
-        console.log('You win! Paper covers Rock!');
-        userWins++;
+        results = 'You win! Paper covers Rock!';
+        ++userWins;
         break;
       case 3:
-        console.log('You lose! Rock breaks Scissors!');
-        compWins++;
+        results = 'You lose! Rock breaks Scissors!';
+        ++compWins;
         break;
     }
   }
 
+  // 2 is for Paper
   if (machine == 2) {
     switch (user) {
       case 1:
-        console.log('You lose! Paper covers Rock!');
-        compWins++;
+        results = 'You lose! Paper covers Rock!';
+        ++compWins;
         break;
       case 2:
-        console.log('Draw, Paper vs. Paper');
-        draws++;
+        results = 'Draw, Paper vs. Paper';
+        ++draws;
         break;
       case 3:
-        console.log('You win! Scissors cut Paper!');
-        userWins++;
+        results = 'You win! Scissors cut Paper!';
+        ++userWins;
         break;
     }
   }
 
+  // 3 is for Scissors
   if (machine == 3) {
     switch (user) {
       case 1:
-        console.log('You win! Rock breaks Scissors!');
-        userWins++;
+        results = 'You win! Rock breaks Scissors!';
+        ++userWins;
         break;
       case 2:
-        console.log('You lose! Scissors cut Paper!');
-        compWins++;
+        results = 'You lose! Scissors cut Paper!';
+        ++compWins;
         break;
       case 3:
-        console.log('Draw, Scissors vs Scissors');
-        draws++;
+        results = 'Draw, Scissors vs Scissors';
+        ++draws;
         break;
     }
   }
+  
+  return results;
 }
 
-while (userWins != 5 || compWins != 5) {
-  compChoice = getComputerChoice();
-  userChoice = getUserChoice();
-  compareChoices(compChoice, userChoice);
+function game() {
+  let roundResults = '';
+  for(let i = 0; i < 5; i++) {
+    compChoice = getComputerChoice();
+    userChoice = getUserChoice();
+    roundResults = playRound(compChoice, userChoice);
+    console.log(roundResults);
+  }
 }
 
 if(userWins == 5) {

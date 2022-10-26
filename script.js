@@ -2,7 +2,7 @@ let compChoice = '',
   userChoice = '';
 
 console.log('Welcome to Rock-Paper-Scissors!');
-console.log('First to 5 victories wins the tournament.');
+console.log('This is a best of 5 tournament, player with the most victories wins!');
 
 let compWins = 0,
   userWins = 0,
@@ -82,6 +82,7 @@ function playRound(machine, user) {
 function game() {
   let roundResults = '';
   for (let i = 0; i < 5; i++) {
+    console.log('Round ' + (i + 1) + ':');
     compChoice = getComputerChoice();
     userChoice = getUserChoice();
     roundResults = playRound(compChoice, userChoice);
@@ -91,8 +92,8 @@ function game() {
 
 game();
 
-if (userWins == 5) {
+if (userWins > compWins) {
   console.log('Congratulations! You won!');
-} else if (compWins == 5) {
+} else if (compWins > userWins) {
   console.log('The computer won, better luck next time.');
 }

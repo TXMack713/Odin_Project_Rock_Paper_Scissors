@@ -17,6 +17,13 @@ function getUserChoice() {
   entry = prompt(
     'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
   );
+  
+  entry = parseInt(entry);
+  
+  if ((entry < 1) || (entry > 3) || ((typeof entry) != 'number')) {
+    alert('Invalid entry');
+    getUserChoice(); 
+  }
   return parseInt(entry);
 }
 

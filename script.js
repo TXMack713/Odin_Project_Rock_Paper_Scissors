@@ -20,7 +20,7 @@ function getUserChoice() {
   
   check = parseInt(entry);
   
-  if ((entry < 1) || (entry > 3) || ((typeof entry) !== 'number') || (check == "undefined")) {
+  if ((entry < 1) || (entry > 3) || ((typeof check) !== 'number') || (check == "undefined")) {
     alert('Invalid entry');
     getUserChoice(); 
   }

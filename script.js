@@ -20,15 +20,17 @@ function getUserChoice() {
   
   check = parseInt(entry);
   
-  do  {
-    alert('Invalid entry');
-    entry = prompt(
-    'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
-  );
+  if ((check < 1) || (check > 3) || ((typeof check) !== 'number') {
+    do  {
+      alert('Invalid entry');
+      entry = prompt(
+      'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
+    );
+      
+    check = parseInt(entry);
+    } while ((check < 1) || (check > 3) || ((typeof check) !== 'number'));
+  }
     
-  check = parseInt(entry);
-  } while ((check < 1) || (check > 3) || ((typeof check) !== 'number'));
-  
   return parseInt(entry);
 }
 

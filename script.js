@@ -1,4 +1,5 @@
-let compChoice = '', userChoice = '';
+let compChoice = '',
+  userChoice = '';
 
 console.log('Welcome to Rock-Paper-Scissors!');
 console.log('First to 5 victories wins the tournament.');
@@ -16,8 +17,7 @@ function getUserChoice() {
   entry = prompt(
     'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
   );
-  }
-  return entry;
+  return parseInt(entry);
 }
 
 function playRound(machine, user) {
@@ -75,13 +75,13 @@ function playRound(machine, user) {
         break;
     }
   }
-  
+
   return results;
 }
 
 function game() {
   let roundResults = '';
-  for(let i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i++) {
     compChoice = getComputerChoice();
     userChoice = getUserChoice();
     roundResults = playRound(compChoice, userChoice);
@@ -89,8 +89,10 @@ function game() {
   }
 }
 
-if(userWins == 5) {
-  console.log("Congratulations! You won!");
-} else if(compWins == 5) {
-  console.log("The computer won, better luck next time.");
+game();
+
+if (userWins == 5) {
+  console.log('Congratulations! You won!');
+} else if (compWins == 5) {
+  console.log('The computer won, better luck next time.');
 }

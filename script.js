@@ -13,14 +13,14 @@ function getComputerChoice() {
 }
 
 function getUserChoice() {
-  let entry; // Placeholder to verify proper selection was made
+  let entry, check; // Placeholder to verify proper selection was made
   entry = prompt(
     'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
   );
   
-  entry = parseInt(entry);
+  check = parseInt(entry);
   
-  if ((entry < 1) || (entry > 3) || ((typeof entry) != 'number') || (typeof entry) == "undefined") {
+  if ((entry < 1) || (entry > 3) || ((typeof entry) !== 'number') || (check == "undefined")) {
     alert('Invalid entry');
     getUserChoice(); 
   }

@@ -20,7 +20,7 @@ function getUserChoice() {
   
   check = parseInt(entry);
   
-  if ((check < 1) || (check > 3) || ((typeof check) !== 'number') {
+  if ((check < 1) || (check > 3) || ((typeof check) !== 'number')) {
     do  {
       alert('Invalid entry');
       entry = prompt(
@@ -29,9 +29,10 @@ function getUserChoice() {
       
     check = parseInt(entry);
     } while ((check < 1) || (check > 3) || ((typeof check) !== 'number'));
+    return check;
   }
     
-  return parseInt(entry);
+  return check;
 }
 
 function playRound(machine, user) {

@@ -124,6 +124,8 @@ game();
 
 if (userWins > compWins) {
   console.log('Congratulations! You won!');
+  console.log('You: ' + userWins + ' wins vs CPU: ' + compWins + ' wins');
 } else if (compWins > userWins) {
   console.log('The computer won, better luck next time.');
+  console.log('You: ' + userWins + ' wins vs CPU: ' + compWins + ' wins');
 }

@@ -128,4 +128,7 @@ if (userWins > compWins) {
 } else if (compWins > userWins) {
   console.log('The computer won, better luck next time.');
   console.log('You: ' + userWins + ' win(s) vs CPU: ' + compWins + ' win(s)');
+} else if (compWins == userWins) {
+  console.log('The match was a draw.');
+  console.log('You: ' + userWins + ' win(s) vs CPU: ' + compWins + ' win(s)');
 }

@@ -22,7 +22,7 @@ function getUserChoice() {
 
   check = parseInt(entry);
 
-  if (check < 1 || check > 3 || typeof check !== 'number') {
+  if (check < 1 || check > 3 || check == NaN) {
     do {
       alert('Invalid entry');
       entry = prompt(
@@ -30,7 +30,7 @@ function getUserChoice() {
       );
 
       check = parseInt(entry);
-    } while (check < 1 || check > 3 || typeof check !== 'number');
+    } while (check < 1 || check > 3 || check == NaN);
     return check;
   }
 

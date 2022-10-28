@@ -2,7 +2,9 @@ let compChoice = '',
   userChoice = '';
 
 console.log('Welcome to Rock-Paper-Scissors!');
-console.log('This is a best of 5 tournament, player with the most victories wins!');
+console.log(
+  'This is a best of 5 tournament, player with the most victories wins!'
+);
 
 let compWins = 0,
   userWins = 0,
@@ -17,21 +19,21 @@ function getUserChoice() {
   entry = prompt(
     'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
   );
-  
+
   check = parseInt(entry);
-  
-  if ((check < 1) || (check > 3) || ((typeof check) !== 'number')) {
-    do  {
+
+  if (check < 1 || check > 3 || typeof check !== 'number') {
+    do {
       alert('Invalid entry');
       entry = prompt(
-      'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
-    );
-      
-    check = parseInt(entry);
-    } while ((check < 1) || (check > 3) || ((typeof check) !== 'number'));
+        'Please make your selection: 1 for Rock, 2 for Paper, or 3 for Scissors'
+      );
+
+      check = parseInt(entry);
+    } while (check < 1 || check > 3 || typeof check !== 'number');
     return check;
   }
-    
+
   return check;
 }
 
@@ -101,6 +103,7 @@ function game() {
     compChoice = getComputerChoice();
     userChoice = getUserChoice();
     roundResults = playRound(compChoice, userChoice);
+    console.log('You: ' + userChoice + ', CPU: ' + compChoice);
     console.log(roundResults);
   }
 }

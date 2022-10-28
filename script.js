@@ -22,7 +22,7 @@ function getUserChoice() {
 
   check = parseInt(entry);
 
-  if (check < 1 || check > 3 || check == NaN) {
+  if (check < 1 || check > 3 || check === NaN) {
     do {
       alert('Invalid entry');
       entry = prompt(
@@ -30,7 +30,7 @@ function getUserChoice() {
       );
 
       check = parseInt(entry);
-    } while (check < 1 || check > 3 || check == NaN);
+    } while (check < 1 || check > 3 || check === NaN);
     return check;
   }
 
@@ -54,6 +54,10 @@ function playRound(machine, user) {
         results = 'You lose! Rock breaks Scissors!';
         ++compWins;
         break;
+      default:
+        results = 'Invalid user entry';
+        ++compWins;
+        break;
     }
   }
 
@@ -72,6 +76,10 @@ function playRound(machine, user) {
         results = 'You win! Scissors cut Paper!';
         ++userWins;
         break;
+      default:
+        results = 'Invalid user entry';
+        ++compWins;
+        break;
     }
   }
 
@@ -89,6 +97,10 @@ function playRound(machine, user) {
       case 3:
         results = 'Draw, Scissors vs Scissors';
         ++draws;
+        break;
+      default:
+        results = 'Invalid user entry';
+        ++compWins;
         break;
     }
   }

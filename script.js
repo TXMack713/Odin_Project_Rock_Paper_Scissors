@@ -22,7 +22,9 @@ function getUserChoice() {
 
   check = parseInt(entry);
 
-  if (check < 1 || check > 3 || check === NaN) {
+  if (check >= 1 && check <= 3) {
+    return check;
+  } else {
     do {
       alert('Invalid entry');
       entry = prompt(
@@ -30,11 +32,9 @@ function getUserChoice() {
       );
 
       check = parseInt(entry);
-    } while (check < 1 || check > 3 || check === NaN);
+    } while (!(check >= 1 && check <= 3));
     return check;
   }
-
-  return check;
 }
 
 function playRound(machine, user) {

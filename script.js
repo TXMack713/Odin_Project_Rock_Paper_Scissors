@@ -130,5 +130,5 @@ if (userWins > compWins) {
   console.log('You: ' + userWins + ' win(s) vs CPU: ' + compWins + ' win(s) and ' + draws + ' draws');
 } else if (compWins == userWins) {
   console.log('The match was a draw.');
-  console.log('You: ' + userWins + ' win(s) vs CPU: ' + compWins + ' win(s) and ' + draws + ' draws');
+  console.log('You: ' + userWins + ' win(s) vs CPU: ' + compWins + ' win(s) and ' + draws + ' draw(s)');
 }

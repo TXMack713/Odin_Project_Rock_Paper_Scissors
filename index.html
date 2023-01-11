@@ -11,16 +11,30 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <nav>
+    <!-- <nav>
       <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+    </nav> -->
     <main>
       <h1>Welcome to the Rock Paper Scissors!</h1>
       <h3>Two constestants enter, but only will be victorious.</h3>
       <hr />
-      <p>To begin, open your console and follow the directions.</p>
+      <p id="instructions">Make Your Selection Below to Begin.</p>
+      <hr />
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+      <h3 id="resultsBanner">Results</h3>
+      <article id="results">
+        <section id="user">
+          <h3>User</h3>
+          <div id="userResults"></div>
+        </section>
+        <section id="computer">
+          <h3>Computer</h3>
+          <div id="computerResults"></div>
+        </section>
+      </article>
     </main>
-    <!-- <script type="module" src="script.js"></script> -->
+    <script type="module" src="script.js"></script>
   </body>
 </html>

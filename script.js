@@ -15,16 +15,19 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 
-rock.addEventListener("click", getComputerChoice(1));
+rock.addEventListener("click", play(1));
 
-paper.addEventListener("click", getComputerChoice(2));
+paper.addEventListener("click", play(2));
 
-scissors.addEventListener("click", getComputerChoice(3));
+scissors.addEventListener("click", play(3));
 
+function play(selection) {
+  const compSelection = getComputerChoice();
+  compareChoices(compSelection, selection);
+}
 
-function getComputerChoice(choice) {
-  const compSelection = Math.floor(Math.random() * (3 - 1 + 1) + 1);
-  compareChoices(compSelection, choice);
+function getComputerChoice() {
+  return Math.floor(Math.random() * (3 - 1 + 1) + 1);
 }
 
 function compareChoices(machine, user) {
@@ -35,14 +38,20 @@ function compareChoices(machine, user) {
       case 1:
         p.textContent = "Draw, Rock vs. Rock";
         draws++;
+        userResults.textContent = userWins;
+        computerResults.textContent = compWins;
         break;
       case 2:
         p.textContent = "You win! Paper covers Rock!";
         userWins++;
+        userResults.textContent = userWins;
+        computerResults.textContent = compWins;
         break;
       case 3:
         p.textContent = "You lose! Rock breaks Scissors!";
         compWins++;
+        userResults.textContent = userWins;
+        computerResults.textContent = compWins;
         break;
     }
   }
@@ -52,14 +61,20 @@ function compareChoices(machine, user) {
       case 1:
         p.textContent = "You lose! Paper covers Rock!";
         compWins++;
+        userResults.textContent = userWins;
+        computerResults.textContent = compWins;
         break;
       case 2:
         p.textContent = "Draw, Paper vs. Paper";
         draws++;
+        userResults.textContent = userWins;
+        computerResults.textContent = compWins;
         break;
       case 3:
         p.textContent = "You win! Scissors cut Paper!";
         userWins++;
+        userResults.textContent = userWins;
+        computerResults.textContent = compWins;
         break;
     }
   }
@@ -69,20 +84,26 @@ function compareChoices(machine, user) {
       case 1:
         p.textContent = "You win! Rock breaks Scissors!";
         userWins++;
+        userResults.textContent = userWins;
+        computerResults.textContent = compWins;
         break;
       case 2:
         p.textContent = "You lose! Scissors cut Paper!";
         compWins++;
+        userResults.textContent = userWins;
+        computerResults.textContent = compWins;
         break;
       case 3:
         p.textContent = "Draw, Scissors vs Scissors";
         draws++;
+        userResults.textContent = userWins;
+        computerResults.textContent = compWins;
         break;
     }
   }
 
-  userResults.textContent = userWins;
-  computerResults.textContent = compWins;
+  /*userResults.textContent = userWins;
+  computerResults.textContent = compWins;*/
 }
 
 if (userWins == 5 || compWins == 5) {
@@ -100,18 +121,16 @@ function stop() {
   scissors.removeEventListener("click", getComputerChoice(3));
 }
 
-/*
-const sect = document.createElement('section');
-const para = document.createElement('p');
+const sect = document.createElement("section");
+const para = document.createElement("p");
 para.textContent = "Would you like to play again?";
 
-const reset = document.createElement('button');
-reset.textContent = 'RESET';
+const reset = document.createElement("button");
+reset.textContent = "RESET";
 
 sect.appendChild = para;
 sect.appendChild = reset;
 
-const article = document.getElementById('results');
+const article = document.getElementById("results");
 
-document.body.insertBefore(sect,article);
-*/
+document.body.insertBefore(sect, article);

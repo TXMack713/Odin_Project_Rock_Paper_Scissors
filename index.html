@@ -11,30 +11,32 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- <nav>
-      <a href="/" aria-current="page">Home</a>
-    </nav> -->
-    <main>
+    <header>
       <h1>Welcome to the Rock Paper Scissors!</h1>
       <h3>Two constestants enter, but only will be victorious.</h3>
+      <h4>First to 5 victories is the winner!</h4>
       <hr />
       <p id="instructions">Make Your Selection Below to Begin.</p>
       <hr />
-      <button class="rock">Rock</button>
-      <button class="paper">Paper</button>
-      <button class="scissors">Scissors</button>
+    </header>
+    <main>
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
       <h3 id="resultsBanner">Results</h3>
 
       <article id="results">
-        <p id="outcome"></p>
-        <section id="user">
-          <h3>User</h3>
-          <div id="userResults" class="roundResults"></div>
-        </section>
+        <p id="outcome">Placeholder</p>
+        <section id="row">
+          <section id="user">
+            <h3>User</h3>
+            <div id="userResults" class="roundResults"></div>
+          </section>
 
-        <section id="computer">
-          <h3>Computer</h3>
-          <div id="computerResults" class="roundResults"></div>
+          <section id="computer">
+            <h3>Computer</h3>
+            <div id="computerResults" class="roundResults"></div>
+          </section>
         </section>
       </article>
     </main>

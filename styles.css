@@ -19,6 +19,15 @@ main {
   padding: 0.25rem;
 }
 
+#buttons {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 2rem;
+}
+
 #results {
   display: flex;
   flex-flow: column wrap;

@@ -12,9 +12,9 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 
-// const instructions = document.querySelector("instructions");
+const instructions = document.querySelector("instructions");
 
-// const outcome = document.getElementById("outcome");
+const outcome = document.getElementById("outcome");
 
 // /*
 // const playButton = document.createElement("button");

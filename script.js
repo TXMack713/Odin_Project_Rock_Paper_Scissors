@@ -8,28 +8,71 @@ const computerResults = document.getElementById("computerResults");
 userResults.textContent = userWins;
 computerResults.textContent = compWins;
 
-const rock = document.getElementById("rock");
-const paper = document.getElementById("paper");
-const scissors = document.getElementById("scissors");
+const begin = document.getElementById("playGame");
+
+begin.addEventListener("click", playGame);
+
+function playGame() {
+  const rock = document.createElement("button");
+  const paper = document.createElement("button");
+  const scissors = document.createElement("button");
+  const article = document.createElement("article");
+
+  article.appendChild(rock);
+  article.appendChild(paper);
+  article.appendChild(scissors);
+
+  rock.className = "rock";
+  paper.className = "paper";
+  scissors.className = "scissors";
+
+  rock.innerHTML = "Rock";
+  paper.innerHTML = "Paper";
+  scissors.innerHTML = "Scissors";
+
+  const buttons = document.getElementById("buttons");
+  const main = document.getElementsByClassName("main");
+
+  buttons.replaceChild(article, begin);
+
+  rock.addEventListener("click", () => {
+    console.log("User picked rock");
+    play(1);
+  });
+
+  paper.addEventListener("click", () => {
+    console.log("User picked paper");
+    play(2);
+  });
+
+  scissors.addEventListener("click", () => {
+    console.log("User picked scissors");
+    play(3);
+  });
+}
 
 const instructions = document.querySelector("instructions");
 
 const outcome = document.getElementById("outcome");
 
-rock.addEventListener("click", () => {
-  console.log("User picked rock");
-  play(1);
-});
+// const rock = document.getElementsByClassName("rock");
+// const paper = docuent.getElementsByClassName("paper");
+// const scissors = document.getElementsByClassName("scissors");
 
-paper.addEventListener("click", () => {
-  console.log("User picked paper");
-  play(2);
-});
+// rock.addEventListener("click", () => {
+//   console.log("User picked rock");
+//   play(1);
+// });
 
-scissors.addEventListener("click", () => {
-  console.log("User picked scissors");
-  play(3);
-});
+// paper.addEventListener("click", () => {
+//   console.log("User picked paper");
+//   play(2);
+// });
+
+// scissors.addEventListener("click", () => {
+//   console.log("User picked scissors");
+//   play(3);
+// });
 
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * (3 - 1 + 1) + 1);
@@ -143,7 +186,9 @@ function stop() {
   sect.appendChild = reset;
 
   const buttons = document.getElementById("buttons");
-  // buttons.innerHTML = sect; 
+  const main = document.getElementsByClassName("main");
+  // main.replaceChild(sect, buttons);
+  buttons.innerHTML = sect;
 }
 
 function gameReset() {

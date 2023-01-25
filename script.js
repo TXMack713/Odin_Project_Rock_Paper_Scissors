@@ -16,16 +16,6 @@ const instructions = document.querySelector("instructions");
 
 const outcome = document.getElementById("outcome");
 
-// /*
-// const playButton = document.createElement("button");
-// playButton.textContent = "PLAY!";
-
-// const buttons = document.getElementById("buttons");
-// buttons.innerHTML = playButton;
-
-// playButton.addEventListener("click", play());
-// */
-
 rock.addEventListener("click", () => {
   console.log("User picked rock");
   play(1);
@@ -107,34 +97,21 @@ function compareChoices(machine, user) {
 }
 
 function play(selection) {
-  // const rock = document.createElement("button");
-  // const paper = document.createElement("paper");
-  // const scissors = document.createElement("scissors");
-
-  // playButton.outerHTML = rock+paper+scissors;
-
-  // rock.addEventListener("click", play(1));
-  // paper.addEventListener("click", play(2));
-  // scissors.addEventListener("click", play(3));
-
+  if (userWins == 5 || compWins == 5) {
+    if (userWins == 5) {
+      alert("Congratulations! You won!");
+    } else if (compWins == 5) {
+      alert("The computer won, better luck next time.");
+    }
+    stop();
+  }
   console.log("A selection was made");
 
   const compSelection = getComputerChoice();
   compareChoices(compSelection, selection);
 }
 
-if (userWins == 5 || compWins == 5) {
-  if (userWins == 5) {
-    alert("Congratulations! You won!");
-  } else if (compWins == 5) {
-    alert("The computer won, better luck next time.");
-  }
-  stop();
-}
-
 function stop() {
-  buttons.innerHTML = playButton;
-
   rock.removeEventListener("click", () => {
     console.log("User picked rock");
     play(1);
@@ -149,23 +126,25 @@ function stop() {
     console.log("User picked scissors");
     play(3);
   });
+
+  const sect = document.createElement("section");
+  const para = document.createElement("p");
+  para.textContent = "Would you like to play again?";
+
+  const reset = document.createElement("button");
+  reset.textContent = "RESET";
+
+  reset.addEventListener("click", () => {
+    console.log("Playing again!");
+    gameReset();
+  });
+
+  sect.appendChild = para;
+  sect.appendChild = reset;
+
+  const buttons = document.getElementById("buttons");
+  // buttons.innerHTML = sect; 
 }
-
-const sect = document.createElement("section");
-const para = document.createElement("p");
-para.textContent = "Would you like to play again?";
-
-const reset = document.createElement("button");
-reset.textContent = "RESET";
-
-sect.appendChild = para;
-sect.appendChild = reset;
-
-const article = document.getElementById("results");
-
-const main = document.getElementsByTagName("main");
-
-main.insertBefore(sect, article);
 
 function gameReset() {
   compWins = 0;

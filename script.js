@@ -21,6 +21,7 @@ function playGame() {
   article.appendChild(rock);
   article.appendChild(paper);
   article.appendChild(scissors);
+  article.id = "gameButtons";
 
   rock.className = "rock";
   paper.className = "paper";
@@ -185,9 +186,9 @@ function stop() {
   sect.appendChild = para;
   sect.appendChild = reset;
 
-  const buttons = document.getElementById("buttons");
+  const buttons = document.getElementById("gameButtons");
   const main = document.getElementsByClassName("main");
-  // main.replaceChild(sect, buttons);
+  main.replaceChild(sect, buttons);
   buttons.innerHTML = sect;
 }
 

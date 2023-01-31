@@ -1,6 +1,6 @@
-let compWins = 0,
-  userWins = 0,
-  draws = 0;
+let compWins = "",
+  userWins = "",
+  draws = "";
 
 const userResults = document.getElementById("userResults");
 const computerResults = document.getElementById("computerResults");
@@ -13,6 +13,13 @@ const begin = document.getElementById("playGame");
 begin.addEventListener("click", playGame);
 
 function playGame() {
+  console.clear();
+  console.log("New game!");
+
+  (compWins = 0), (userWins = 0), (draws = 0);
+  userResults.textContent = userWins;
+  computerResults.textContent = compWins;
+
   const rock = document.createElement("button");
   const paper = document.createElement("button");
   const scissors = document.createElement("button");
@@ -32,7 +39,7 @@ function playGame() {
   scissors.innerHTML = "Scissors";
 
   const buttons = document.getElementById("buttons");
-  const main = document.getElementsByClassName("main");
+  // const main = document.getElementsByClassName("main");
 
   buttons.replaceChild(article, begin);
 
@@ -56,28 +63,16 @@ const instructions = document.querySelector("instructions");
 
 const outcome = document.getElementById("outcome");
 
-// const rock = document.getElementsByClassName("rock");
-// const paper = docuent.getElementsByClassName("paper");
-// const scissors = document.getElementsByClassName("scissors");
-
-// rock.addEventListener("click", () => {
-//   console.log("User picked rock");
-//   play(1);
-// });
-
-// paper.addEventListener("click", () => {
-//   console.log("User picked paper");
-//   play(2);
-// });
-
-// scissors.addEventListener("click", () => {
-//   console.log("User picked scissors");
-//   play(3);
-// });
-
 function getComputerChoice() {
   const choice = Math.floor(Math.random() * (3 - 1 + 1) + 1);
-  console.log("Computer choice is: " + choice);
+  if (choice == 1) {
+    console.log("Computer choice is: rock");
+  } else if (choice == 2) {
+    console.log("Computer choice is: paper");
+  } else if (choice == 3) {
+    console.log("Computer choice is: scissors");
+  }
+  // console.log("Computer choice is: " + choice);
   return choice;
 }
 
@@ -148,52 +143,19 @@ function play(selection) {
       alert("The computer won, better luck next time.");
     }
     stop();
-  }
-  console.log("A selection was made");
+  } else {
+    console.log("A selection was made");
 
-  const compSelection = getComputerChoice();
-  compareChoices(compSelection, selection);
+    const compSelection = getComputerChoice();
+    compareChoices(compSelection, selection);
+  }
 }
 
 function stop() {
-  rock.removeEventListener("click", () => {
-    console.log("User picked rock");
-    play(1);
-  });
+  alert("The game is over now.");
 
-  paper.removeEventListener("click", () => {
-    console.log("User picked paper");
-    play(2);
-  });
-
-  scissors.removeEventListener("click", () => {
-    console.log("User picked scissors");
-    play(3);
-  });
-
-  const sect = document.createElement("section");
-  const para = document.createElement("p");
-  para.textContent = "Would you like to play again?";
-
-  const reset = document.createElement("button");
-  reset.textContent = "RESET";
-
-  reset.addEventListener("click", () => {
-    console.log("Playing again!");
-    gameReset();
-  });
-
-  sect.appendChild = para;
-  sect.appendChild = reset;
-
-  const buttons = document.getElementById("gameButtons");
-  const main = document.getElementsByClassName("main");
-  main.replaceChild(sect, buttons);
-  buttons.innerHTML = sect;
-}
-
-function gameReset() {
-  compWins = 0;
-  userWins = 0;
-  draws = 0;
+  const article = document.getElementById("gameButtons");
+  console.log("End of the stop function.");
+  buttons.replaceChild(begin, article);
+  console.clear();
 }
